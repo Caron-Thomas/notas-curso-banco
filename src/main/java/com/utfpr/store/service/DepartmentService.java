@@ -13,6 +13,11 @@ public class DepartmentService {
     @Autowired
     private DepartmentRepository repository;
 
+    public Department findOldestDepartment() {
+        return repository.findFirstBy();
+    }
+
+
     public List<Department> listAllDepartments() {
         return repository.findAll();
     }

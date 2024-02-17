@@ -7,6 +7,10 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "funcionario")
+@NamedQuery(
+        name = "Employees.byDependents",
+        query = "SELECT e FROM Employee e WHERE e.dependent = ?1"
+        )
 @Data
 public class Employee {
 
