@@ -2,6 +2,7 @@ package com.utfpr.store.service;
 
 import com.utfpr.store.entity.Employee;
 import com.utfpr.store.repository.EmployeeRepository;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.aspectj.weaver.ast.Literal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,23 +44,11 @@ public class EmployeeService {
         return repository.findEmployeesByWageBiggerThan(wage);
     }
 
-    public Employee createEmployee(String name, Integer dependent, BigDecimal wage, String position, Long departmentId) {
-
-        Employee e = new Employee();
-        e.getDepartment().setId(departmentId);
-        e.setName(name);
-        e.setDependent(dependent);
-        e.setWage(wage);
-        e.setPosition(position);
-
-        return repository.save(e);
+    public List<Employee> findByDependents(Integer dependents) {
+        return repository.findByDependents(dependents);
     }
 
-    public List<Employee> listAllEmployees() {
-        return repository.findAll();
-    }
-
-    public Employee findById(Long id) {
-        return repository.findById(id).orElse(null);
+    public List<Employee> findWithPartialName(String name) {
+        return repository.findWithPartialName(name);
     }
 }

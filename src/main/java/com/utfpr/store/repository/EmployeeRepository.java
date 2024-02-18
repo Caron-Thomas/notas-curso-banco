@@ -27,4 +27,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query(value = "SELECT * FROM funcionario f WHERE f.salario > ?1", nativeQuery = true)
     List<Employee> findEmployeesByWageBiggerThan(BigDecimal wage);
 
+    @Query(name = "Employees.byDependents")
+    List<Employee> findByDependents(Integer dependents);
+
+    @Query(name = "Employees.withName")
+    List<Employee> findWithPartialName(String name);
 }

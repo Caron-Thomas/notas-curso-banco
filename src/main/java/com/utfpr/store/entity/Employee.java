@@ -11,6 +11,11 @@ import java.math.BigDecimal;
         name = "Employees.byDependents",
         query = "SELECT e FROM Employee e WHERE e.dependent = ?1"
         )
+@NamedNativeQuery(
+        name = "Employees.withName",
+        query = "SELECT * FROM funcionario f WHERE f.nome LIKE CONCAT('%',?1,'%')",
+        resultClass = Employee.class
+        )
 @Data
 public class Employee {
 

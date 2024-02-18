@@ -64,6 +64,17 @@ public class ActivityIiApplication {
 			log.info("");
 			log.info("============ Pergunta 8 =============================");
 			es.findEmployeesByWageBiggerThan(BigDecimal.valueOf(16000.00)).forEach(e -> log.info(e.toString()));
+
+			log.info("");
+			log.info("");
+			log.info("============ Pergunta 11.a ===========================");
+			es.findByDependents(3).forEach(e -> log.info(e.toString()));
+
+			log.info("");
+			log.info("");
+			log.info("============ Pergunta 11.b ===========================");
+			es.findWithPartialName("Jo").forEach(e -> log.info(e.toString()));
+
 		};
 	}
 }
